@@ -36,7 +36,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .buttons {
@@ -89,7 +89,7 @@ if mobile the screen is mobile size
   }
 
   .door {
-    width: 100px;
+    width: 80px;
     height: 90px;
   }
 }
