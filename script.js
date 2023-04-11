@@ -190,6 +190,7 @@
           function () {
             this.querySelectorAll(".box").forEach((box, index) => {
               box.style.filter = "blur(0)";
+              box.style.backdropFilter = "blur(0)";
               if (index > 0) this.removeChild(box);
             });
           },
