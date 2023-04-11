@@ -1,32 +1,148 @@
 (function () {
-  const items = [
-    "🍭",
-    "❌",
-    "⛄️",
-    "🦄",
-    "🍌",
-    "💩",
-    "👻",
-    "😻",
-    "💵",
-    "🤡",
-    "🦖",
-    "🍎",
-    "😂",
-    "🖕",
-  ];
+  const doorsData = [
+    // Cities
+    [
+      "Glendale, AZ",
+      "Atlanta, GA",
+      "Baltimore, MD",
+      "Buffalo, NY",
+      "Charlotte, NC",
+      "Chicago, IL",
+      "Cincinnati, OH",
+      "Cleveland, OH",
+      "Arlington, TX",
+      "Denver, CO",
+      "Detroit, MI",
+      "Green Bay, WI",
+      "Houston, TX",
+      "Indianapolis, IN",
+      "Jacksonville, FL",
+      "Kansas City, MO",
+      "Las Vegas, NV",
+      "Inglewood, CA",
+      "Inglewood, CA",
+      "Miami Gardens, FL",
+      "Minneapolis, MN",
+      "Foxborough, MA",
+      "New Orleans, LA",
+      "East Rutherford, NJ",
+      "East Rutherford, NJ",
+      "Philadelphia, PA",
+      "Pittsburgh, PA",
+      "Santa Clara, CA",
+      "Seattle, WA",
+      "Tampa, FL",
+      "Nashville, TN",
+      "Landover, MD",
+    ],
 
-  // const items = [
-  //   "img/symbol1.png",
-  //   "img/symbol2.png",
-  //   "img/symbol3.png",
-  //   "img/symbol4.png",
-  //   "img/symbol5.png",
-  //   "img/symbol6.png",
-  //   "img/symbol7.png",
-  //   "img/symbol8.png",
-  //   "img/symbol9.png",
-  // ];
+    // Owners
+    [
+      "Michael Bidwill",
+      "Arthur Blank",
+      "Steve Bisciotti",
+      "Terry Pegula",
+      "David Tepper",
+      "Virginia McCaskey",
+      "Mike Brown",
+      "Jimmy Haslam",
+      "Jerry Jones",
+      "Pat Bowlen Trust",
+      "Sheila Ford Hamp",
+      "Green Bay Packers, Inc.",
+      "Janice McNair",
+      "Jim Irsay",
+      "Shahid Khan",
+      "Clark Hunt",
+      "Mark Davis",
+      "Dean Spanos",
+      "Stan Kroenke",
+      "Stephen Ross",
+      "Zygi Wilf",
+      "Robert Kraft",
+      "Gayle Benson",
+      "John Mara and Steve Tisch",
+      "Woody Johnson",
+      "Jeffrey Lurie",
+      "Rooney Family",
+      "Jed York",
+      "Jody Allen",
+      "Glazer Family",
+      "Amy Adams Strunk",
+      "Dan Snyder",
+    ],
+
+    // Coaches
+    [
+      "Kliff Kingsbury",
+      "Arthur Smith",
+      "John Harbaugh",
+      "Sean McDermott",
+      "Matt Rhule",
+      "Matt Nagy",
+      "Zac Taylor",
+      "Kevin Stefanski",
+      "Mike McCarthy",
+      "Vic Fangio",
+      "Dan Campbell",
+      "Matt LaFleur",
+      "David Culley",
+      "Frank Reich",
+      "Urban Meyer",
+      "Andy Reid",
+      "Jon Gruden",
+      "Brandon Staley",
+      "Sean McVay",
+      "Brian Flores",
+      "Mike Zimmer",
+      "Bill Belichick",
+      "Sean Payton",
+      "Joe Judge",
+      "Robert Saleh",
+      "Nick Sirianni",
+      "Mike Tomlin",
+      "Kyle Shanahan",
+      "Pete Carroll",
+      "Bruce Arians",
+      "Mike Vrabel",
+      "Ron Rivera",
+    ],
+
+    //Quarterbacks
+    [
+      "Kyler Murray",
+      "Matt Ryan",
+      "Lamar Jackson",
+      "Josh Allen",
+      "Sam Darnold",
+      "Andy Dalton",
+      "Joe Burrow",
+      "Baker Mayfield",
+      "Dak Prescott",
+      "Teddy Bridgewater",
+      "Jared Goff",
+      "Aaron Rodgers",
+      "Tyrod Taylor",
+      "Carson Wentz",
+      "Trevor Lawrence",
+      "Patrick Mahomes",
+      "Derek Carr",
+      "Justin Herbert",
+      "Matthew Stafford",
+      "Tua Tagovailoa",
+      "Kirk Cousins",
+      "Mac Jones",
+      "Jameis Winston",
+      "Daniel Jones",
+      "Zach Wilson",
+      "Ben Roethlisberger",
+      "Jimmy Garoppolo",
+      "Russell Wilson",
+      "Tom Brady",
+      "Ryan Tannehill",
+      "Taylor Heinicke",
+    ],
+  ];
 
   // define and select all 'door' elements
   const doors = document.querySelectorAll(".door");
@@ -37,7 +153,10 @@
 
   // define init function
   function init(firstInit = true, groups = 1, duration = 1) {
-    for (const door of doors) {
+    for (let i = 0; i < doors.length; i++) {
+      const door = doors[i];
+      const items = doorsData[i]; // get data-items for this door
+
       if (firstInit) {
         door.dataset.spinned = "0";
       } else if (door.dataset.spinned === "1") {
@@ -98,7 +217,6 @@
   // define spin function
   async function spin() {
     init(false, 1, 2);
-
     for (const door of doors) {
       const boxes = door.querySelector(".boxes");
       const duration = parseInt(boxes.style.transitionDuration);
