@@ -76,6 +76,22 @@ h2 {
   width: 100%;
 }
 
+.logo-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  /* set image size */
+  width: 30%;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 /*
 if mobile the screen is mobile size
 - make the buttons bigger
