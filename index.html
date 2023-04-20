@@ -1,57 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Slot Machine</title>
+    <title>NFL Franchise Slots Game</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0;" />
     <meta charset="UTF-8" />
   </head>
   <body>
-    <!-- add a header with a logo -->
-    <header>
-      <img class="logo-holder" src="img/fos-logo.svg" />
-    </header>
+    <div class="header-div">
+      <!-- insert header with image -->
+      <img
+        class="logo-holder"
+        src="img/fos-logo.svg"
+        alt="Front Office Sports"
+      />
+    </div>
+    <div class="game-div">
+      <div class="instructions-holder">
+        <p>Welcome to the Front Office Sports NFL franchise generator.</p>
+        <p>Press 'Play' to generate your NFL franchise.</p>
+        <p>Share it across social media.</p>
+      </div>
 
-    <div id="app">
-      <div class="game-wrapper">
-        <div class="doors">
-          <div class="box-and-title">
-            <h2>Location</h2>
-            <div class="door">
-              <div class="boxes">
-                <div class="box"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="box-and-title">
-            <h2>Owner</h2>
-            <div class="door">
-              <div class="boxes"></div>
-            </div>
-          </div>
-
-          <div class="box-and-title">
-            <h2>Coach</h2>
-            <div class="door">
-              <div class="boxes"></div>
-            </div>
-          </div>
-
-          <div class="box-and-title">
-            <h2>QB</h2>
-            <div class="door">
-              <div class="boxes"></div>
-            </div>
-          </div>
+      <div class="doors-holder">
+        <div class="single-door">
+          <div class="slot-boxes"></div>
         </div>
-
-        <div class="buttons">
-          <button id="spinner">Play</button>
-          <button id="reseter">Reset</button>
+        <div class="single-door">
+          <div class="slot-boxes"></div>
         </div>
+        <!-- <div class="single-door">
+          <div class="slot-boxes"></div>
+        </div>
+        <div class="single-door">
+          <div class="slot-boxes"></div>
+        </div> -->
+      </div>
+      <div class="buttons-holder">
+        <button id="play">Play</button>
+        <button id="reset">Reset</button>
       </div>
     </div>
   </body>
+  <script src="data/nfl.js"></script>
   <script src="script.js"></script>
 </html>

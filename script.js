@@ -1,238 +1,143 @@
-(function () {
-  const doorsData = [
-    // Cities
-    [
-      "Glendale, AZ",
-      "Atlanta, GA",
-      "Baltimore, MD",
-      "Buffalo, NY",
-      "Charlotte, NC",
-      "Chicago, IL",
-      "Cincinnati, OH",
-      "Cleveland, OH",
-      "Arlington, TX",
-      "Denver, CO",
-      "Detroit, MI",
-      "Green Bay, WI",
-      "Houston, TX",
-      "Indianapolis, IN",
-      "Jacksonville, FL",
-      "Kansas City, MO",
-      "Las Vegas, NV",
-      "Inglewood, CA",
-      "Inglewood, CA",
-      "Miami Gardens, FL",
-      "Minneapolis, MN",
-      "Foxborough, MA",
-      "New Orleans, LA",
-      "East Rutherford, NJ",
-      "East Rutherford, NJ",
-      "Philadelphia, PA",
-      "Pittsburgh, PA",
-      "Santa Clara, CA",
-      "Seattle, WA",
-      "Tampa, FL",
-      "Nashville, TN",
-      "Landover, MD",
-    ],
+// import { dataList } from "data/nfl.js";
+// const dataList = import("./data/nfl.json");
 
-    // Owners
-    [
-      "Michael Bidwill",
-      "Arthur Blank",
-      "Steve Bisciotti",
-      "Terry Pegula",
-      "David Tepper",
-      "Virginia McCaskey",
-      "Mike Brown",
-      "Jimmy Haslam",
-      "Jerry Jones",
-      "Pat Bowlen Trust",
-      "Sheila Ford Hamp",
-      "Green Bay Packers, Inc.",
-      "Janice McNair",
-      "Jim Irsay",
-      "Shahid Khan",
-      "Clark Hunt",
-      "Mark Davis",
-      "Dean Spanos",
-      "Stan Kroenke",
-      "Stephen Ross",
-      "Zygi Wilf",
-      "Robert Kraft",
-      "Gayle Benson",
-      "John Mara and Steve Tisch",
-      "Woody Johnson",
-      "Jeffrey Lurie",
-      "Rooney Family",
-      "Jed York",
-      "Jody Allen",
-      "Glazer Family",
-      "Amy Adams Strunk",
-      "Dan Snyder",
-    ],
+// var mydata = JSON.parse(data);
 
-    // Coaches
-    [
-      "Kliff Kingsbury",
-      "Arthur Smith",
-      "John Harbaugh",
-      "Sean McDermott",
-      "Matt Rhule",
-      "Matt Nagy",
-      "Zac Taylor",
-      "Kevin Stefanski",
-      "Mike McCarthy",
-      "Vic Fangio",
-      "Dan Campbell",
-      "Matt LaFleur",
-      "David Culley",
-      "Frank Reich",
-      "Urban Meyer",
-      "Andy Reid",
-      "Jon Gruden",
-      "Brandon Staley",
-      "Sean McVay",
-      "Brian Flores",
-      "Mike Zimmer",
-      "Bill Belichick",
-      "Sean Payton",
-      "Joe Judge",
-      "Robert Saleh",
-      "Nick Sirianni",
-      "Mike Tomlin",
-      "Kyle Shanahan",
-      "Pete Carroll",
-      "Bruce Arians",
-      "Mike Vrabel",
-      "Ron Rivera",
-    ],
+// (function () {
+// define and select all 'door' elements
+const doors = document.querySelectorAll(".single-door");
 
-    //Quarterbacks
-    [
-      "Kyler Murray",
-      "Matt Ryan",
-      "Lamar Jackson",
-      "Josh Allen",
-      "Sam Darnold",
-      "Andy Dalton",
-      "Joe Burrow",
-      "Baker Mayfield",
-      "Dak Prescott",
-      "Teddy Bridgewater",
-      "Jared Goff",
-      "Aaron Rodgers",
-      "Tyrod Taylor",
-      "Carson Wentz",
-      "Trevor Lawrence",
-      "Patrick Mahomes",
-      "Derek Carr",
-      "Justin Herbert",
-      "Matthew Stafford",
-      "Tua Tagovailoa",
-      "Kirk Cousins",
-      "Mac Jones",
-      "Jameis Winston",
-      "Daniel Jones",
-      "Zach Wilson",
-      "Ben Roethlisberger",
-      "Jimmy Garoppolo",
-      "Russell Wilson",
-      "Tom Brady",
-      "Ryan Tannehill",
-      "Taylor Heinicke",
-    ],
-  ];
+// add event listeners to buttons
+document.querySelector("#play").addEventListener("click", spin);
+document.querySelector("#reset").addEventListener("click", init);
 
-  // define and select all 'door' elements
-  const doors = document.querySelectorAll(".door");
+// define init function
+function init(firstInit = true, groups = 1, duration = 1) {
+  // change the 'Share' button to 'Play'
+  // document.querySelector("#spin").innerHTML = "Play";
 
-  // add event listeners to buttons
-  document.querySelector("#spinner").addEventListener("click", spin);
-  document.querySelector("#reseter").addEventListener("click", init);
+  for (let i = 0; i < doors.length; i++) {
+    const door = doors[i];
+    const items = dataList[i]; // get data-items for this door
 
-  // define init function
-  function init(firstInit = true, groups = 1, duration = 1) {
-    for (let i = 0; i < doors.length; i++) {
-      const door = doors[i];
-      const items = doorsData[i]; // get data-items for this door
-
-      if (firstInit) {
-        door.dataset.spinned = "0";
-      } else if (door.dataset.spinned === "1") {
-        return;
-      }
-
-      const boxes = door.querySelector(".boxes");
-      const boxesClone = boxes.cloneNode(false);
-      const pool = ["❓"];
-
-      if (!firstInit) {
-        const arr = [];
-        for (let n = 0; n < (groups > 0 ? groups : 1); n++) {
-          arr.push(...items);
-        }
-        pool.push(...shuffle(arr));
-
-        boxesClone.addEventListener(
-          "transitionstart",
-          function () {
-            door.dataset.spinned = "1";
-            this.querySelectorAll(".box").forEach((box) => {
-              box.style.filter = "blur(1px)";
-            });
-          },
-          { once: true }
-        );
-
-        boxesClone.addEventListener(
-          "transitionend",
-          function () {
-            this.querySelectorAll(".box").forEach((box, index) => {
-              box.style.filter = "blur(0px)";
-              if (index > 0) this.removeChild(box);
-            });
-          },
-          { once: true }
-        );
-      }
-
-      for (let i = pool.length - 1; i >= 0; i--) {
-        const box = document.createElement("div");
-        box.classList.add("box");
-        box.style.width = door.clientWidth + "px";
-        box.style.height = door.clientHeight + "px";
-        box.textContent = pool[i];
-        // box.style.backgroundImage = `url(${pool[i]})`;
-        boxesClone.appendChild(box);
-      }
-      boxesClone.style.transitionDuration = `${duration > 0 ? duration : 1}s`;
-      boxesClone.style.transform = `translateY(-${
-        door.clientHeight * (pool.length - 1)
-      }px)`;
-      door.replaceChild(boxesClone, boxes);
+    if (firstInit) {
+      door.dataset.spinned = "0";
+    } else if (door.dataset.spinned === "1") {
+      return;
     }
-  }
 
-  // define spin function
-  async function spin() {
-    init(false, 1, 2);
-    for (const door of doors) {
-      const boxes = door.querySelector(".boxes");
-      const duration = parseInt(boxes.style.transitionDuration);
-      boxes.style.transform = "translateY(0)";
-      await new Promise((resolve) => setTimeout(resolve, duration * 100));
+    const boxes = door.querySelector(".slot-boxes");
+    const boxesClone = boxes.cloneNode(false);
+    const pool = [
+      {
+        text: "",
+        image:
+          "https://cdn3.iconfinder.com/data/icons/slot-machine-symbols-filled-outline/256/cherry-512.png",
+      },
+    ]; // modify pool array
+
+    if (!firstInit) {
+      const arr = [];
+      for (let n = 0; n < (groups > 0 ? groups : 1); n++) {
+        arr.push(...items);
+      }
+      shuffle(arr).forEach((item) => {
+        // shuffle and add items to pool
+        pool.push(item);
+      });
+
+      boxesClone.addEventListener(
+        "transitionstart",
+        function () {
+          door.dataset.spinned = "1";
+          this.querySelectorAll(".single-box").forEach((box) => {
+            box.style.filter = "blur(1px)";
+          });
+        },
+        { once: true }
+      );
+
+      boxesClone.addEventListener(
+        "transitionend",
+        function () {
+          this.querySelectorAll(".single-box").forEach((box, index) => {
+            box.style.filter = "blur(0px)";
+            if (index > 0) this.removeChild(box);
+          });
+        },
+        { once: true }
+      );
     }
-  }
 
-  function shuffle([...arr]) {
-    let m = arr.length;
-    while (m) {
-      const i = Math.floor(Math.random() * m--);
-      [arr[m], arr[i]] = [arr[i], arr[m]];
+    for (let i = pool.length - 1; i >= 0; i--) {
+      const box = document.createElement("div");
+      box.classList.add("single-box");
+      box.style.width = door.clientWidth + "px";
+      box.style.height = door.clientHeight + "px";
+      // box.innerHTML = `<p>${pool[i].text}</p> <img class="slot-image" src="${pool[i].image}">`;
+      box.innerHTML = `<div class="box-layout"> <img class="slot-image" src="${pool[i].image}"> <p>${pool[i].text}</p> </div>`;
+      boxesClone.appendChild(box);
     }
-    return arr;
+    boxesClone.style.transitionDuration = `${duration > 0 ? duration : 1}s`;
+    boxesClone.style.transform = `translateY(-${
+      door.clientHeight * (pool.length - 1)
+    }px)`;
+    door.replaceChild(boxesClone, boxes);
   }
+}
 
-  init();
-})();
+// define spin function
+async function spin() {
+  // change the 'Play' button to 'Share'
+  // document.querySelector("#spin").innerHTML = "Share";
+
+  init(false, 1, 2);
+  for (const door of doors) {
+    const boxes = door.querySelector(".slot-boxes");
+    const duration = parseInt(boxes.style.transitionDuration);
+    boxes.style.transform = "translateY(0)";
+    await new Promise((resolve) => setTimeout(resolve, duration * 100));
+  }
+}
+
+function shuffle([...arr]) {
+  let m = arr.length;
+  while (m) {
+    const i = Math.floor(Math.random() * m--);
+    [arr[m], arr[i]] = [arr[i], arr[m]];
+  }
+  return arr;
+}
+
+// when Play is clicked, change the button to Share
+document.querySelector("#play").addEventListener("click", function () {
+  // change the button ID to 'share'
+  this.id = "share";
+  // change the 'Play' text to 'Share'
+  this.innerHTML = "Share";
+});
+
+// when 'Reset' is clicked, change the button to 'Play'
+document.querySelector("#reset").addEventListener("click", function () {
+  // change the button ID to 'play'
+  document.querySelector("#share").id = "play";
+  // change the 'Share' text to 'Play'
+  document.querySelector("#play").innerHTML = "Play";
+});
+
+function checkElementId() {
+  const element = document.getElementById("share");
+  if (element) {
+    element.addEventListener("click", function () {
+      // do something when the element is clicked
+      console.log("share clicked");
+    });
+  } else {
+    setTimeout(checkElementId, 100); // check again in 100ms
+  }
+}
+
+checkElementId(); // start checking for the element ID
+
+init();
+// })();
