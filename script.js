@@ -30,9 +30,9 @@ function init(firstInit = true, groups = 1, duration = 1) {
     const boxesClone = boxes.cloneNode(false);
     const pool = [
       {
-        text: "",
+        text: "🍒",
         image:
-          "https://cdn3.iconfinder.com/data/icons/slot-machine-symbols-filled-outline/256/cherry-512.png",
+          "https://wallpapers.com/images/hd/blank-white-with-black-borders-to1p5x536lc9en78.jpg",
       },
     ]; // modify pool array
 
@@ -75,7 +75,12 @@ function init(firstInit = true, groups = 1, duration = 1) {
       box.style.width = door.clientWidth + "px";
       box.style.height = door.clientHeight + "px";
       // box.innerHTML = `<p>${pool[i].text}</p> <img class="slot-image" src="${pool[i].image}">`;
-      box.innerHTML = `<div class="box-layout"> <img class="slot-image" src="${pool[i].image}"> <p>${pool[i].text}</p> </div>`;
+      // box.innerHTML = `<div class="box-layout"> <img class="slot-image" src="${pool[i].image}"> <p>${pool[i].text}</p> </div>`;
+      // box.innerHTML = `<div class="box-layout"> <img class="slot-image" src="${pool[i].image}"> </div>`;
+      // set the inner HTML of the box so the image fills the box, and the text is centered over the image
+
+      box.innerHTML = `<div class="box-layout" style="background-image: url('${pool[i].image}')"></div><p class="infront-of-image">${pool[i].text}</p>`;
+
       boxesClone.appendChild(box);
     }
     boxesClone.style.transitionDuration = `${duration > 0 ? duration : 1}s`;
