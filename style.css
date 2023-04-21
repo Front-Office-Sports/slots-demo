@@ -167,6 +167,10 @@ button:hover {
   /* text-shadow: 0 0 10px black; */
 }
 
+.no-blur {
+  filter: none;
+}
+
 /* if mobile device */
 @media only screen and (max-width: 600px) {
   .doors-holder {

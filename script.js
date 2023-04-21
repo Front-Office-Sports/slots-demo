@@ -30,9 +30,9 @@ function init(firstInit = true, groups = 1, duration = 1) {
     const boxesClone = boxes.cloneNode(false);
     const pool = [
       {
-        text: "🍒",
+        text: "",
         image:
-          "https://wallpapers.com/images/hd/blank-white-with-black-borders-to1p5x536lc9en78.jpg",
+          "https://cdn3.iconfinder.com/data/icons/slot-machine-symbols-filled-outline/256/cherry-512.png",
       },
     ];
 
