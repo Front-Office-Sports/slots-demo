@@ -34,7 +34,7 @@ function init(firstInit = true, groups = 1, duration = 1) {
         image:
           "https://wallpapers.com/images/hd/blank-white-with-black-borders-to1p5x536lc9en78.jpg",
       },
-    ]; // modify pool array
+    ];
 
     if (!firstInit) {
       const arr = [];
