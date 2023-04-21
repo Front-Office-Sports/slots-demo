@@ -53,6 +53,113 @@ const dataList = [
     },
   ],
 
+  // Team Owners
+  [
+    {
+      text: "Shadid Khan",
+      image:
+        "https://media.cnn.com/api/v1/images/stellar/prod/180426132335-shahid-khan-tease-fulham-wembley-stadium-purchase.jpg?q=w_3736,h_2512,x_0,y_0,c_fill",
+    },
+    {
+      text: "Randy Lerner",
+      image:
+        "https://www.independent.ie/sport/soccer/c51c8/40819299.ece/AUTOCROP/w620/ipanews_d3716b97-9fcd-4022-914c-ea10886cb8e9_1",
+    },
+    {
+      text: "Malcolm Glazer",
+      image:
+        "https://static01.nyt.com/images/2014/05/29/arts/Glazer-Obit/Glazer-Obit-superJumbo.jpg",
+    },
+    {
+      text: "Robert Kraft",
+      image:
+        "https://cdn.theathletic.com/app/uploads/2023/03/28000225/GettyImages-1431986546-scaled-e1679976175991-1024x684.jpeg",
+    },
+    {
+      text: "Stan Kroenke",
+      image:
+        "https://e0.365dm.com/22/02/2048x1152/skysports-los-angeles-rams_5673682.jpg",
+    },
+    {
+      text: "Jeffrey Lurie",
+      image:
+        "https://m.media-amazon.com/images/M/MV5BODcxNmQzMWMtZjRiYS00M2NiLTkxZDYtNmE1MzE3NTk0M2EwXkEyXkFqcGdeQXVyOTAyMDgxODQ@._V1_.jpg",
+    },
+    {
+      text: "Arthur Blank",
+      image:
+        "https://media-beta.wsbtv.com/photo/2015/12/23/arthur_blank_1_168885_ver1.0.JPG",
+    },
+    {
+      text: "Jerry Jones",
+      image:
+        "https://www.gannett-cdn.com/presto/2020/08/12/USAT/ee4221ac-e138-4a58-aac7-a775e2933690-USATSI_13255671.jpg",
+    },
+    {
+      text: "Rob Walton",
+      image:
+        "https://www.ky3.com/resizer/Cw2nKdLtLCDGJmpK4O5ckxQQRm4=/arc-photo-gray/arc3-prod/public/67IZOSTBQ5AJVFDNDCAQMHUOMU.jpg",
+    },
+    {
+      text: "Terry Pegula",
+      image:
+        "https://bloximages.chicago2.vip.townnews.com/buffalonews.com/content/tncms/assets/v3/editorial/7/97/79753ab4-246a-11ec-9e1e-63e258730491/6159e01a6e266.image.jpg?resize=1200%2C800",
+    },
+  ],
+
+  // Coaches
+  [
+    {
+      text: "Andy Reid",
+      image:
+        "https://people.com/thmb/rFBRQVwQFfHMF2uB7LKpQzhaXSI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x539:1001x541)/andy-reid-1-37a2c4de4a384c86bc4f99e23ce8203e.jpg",
+    },
+    {
+      text: "Sean McVay",
+      image:
+        "https://www.si.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk1MDc0NDA5OTg2MjcwNDA3/sean-mcvay-2-1.jpg",
+    },
+    {
+      text: "Bill Belichick",
+      image:
+        "https://bloximages.newyork1.vip.townnews.com/wenatcheeworld.com/content/tncms/assets/v3/editorial/2/2f/22f92893-7f9b-5950-b072-63f52e008fb7/643476d39d9ca.image.jpg",
+    },
+    {
+      text: "Mike Tomlin",
+      image:
+        "https://www.gannett-cdn.com/presto/2021/10/26/USAT/77731707-ee5a-4a6b-adf7-34957dfe980c-USP_NFL__Pittsburgh_Steelers_at_Green_Bay_Packers.jpg",
+    },
+    {
+      text: "John Harbaugh",
+      image:
+        "https://ravenswire.usatoday.com/wp-content/uploads/sites/55/2022/02/8463f16c1a8349bbb23df418828cc8ad.jpg?w=1000&h=600&crop=1",
+    },
+    {
+      text: "Sean McDermott",
+      image:
+        "https://cdn.vox-cdn.com/thumbor/jW_gO2-I8TZOhIrmqyE3kdIhLzI=/0x0:2549x3431/1200x800/filters:focal(1008x424:1414x830)/cdn.vox-cdn.com/uploads/chorus_image/image/71283036/usa_today_18866164.0.jpg",
+    },
+    {
+      text: "Matt LaFleur",
+      image: "https://s.hdnux.com/photos/01/07/06/51/18639446/6/rawImage.jpg",
+    },
+    {
+      text: "Pete Carroll",
+      image:
+        "https://bloximages.newyork1.vip.townnews.com/wenatcheeworld.com/content/tncms/assets/v3/editorial/4/0a/40add3dc-928f-11ed-8c92-db15aa245eaf/629ab27dac8aa.image.jpg",
+    },
+    {
+      text: "Kyle Shanahan",
+      image:
+        "https://library.sportingnews.com/styles/twitter_card_120x120/s3/2022-09/Kyle-Shanahan-091822-GETTY-FTR.jpg?itok=mMBfWVMe",
+    },
+    {
+      text: "Zac Taylor",
+      image:
+        "https://www.cleveland.com/resizer/XRFN0nibHc2B-iAzYawusEQABD0=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/V7H6NQTJRRDYVFFOYBH6YQTBAM.jpg",
+    },
+  ],
+
   //Quarterbacks
   [
     {
