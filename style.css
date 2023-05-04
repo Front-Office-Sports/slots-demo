@@ -111,16 +111,23 @@ button:hover {
   font-size: 1.2rem;
 }
 
+.blur-image-box .box-layout {
+  filter: blur(3px) brightness(40%);
+}
+
 .box-layout {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /* add a blur if background image */
+
   /* flex-direction: column; */
 
   /* change opacity of the background image */
   /* opacity: 0.5; */
 
-  filter: blur(3px) brightness(40%);
+  /* filter: blur(3px) brightness(40%); */
 
   /* lower the opacity of the background image */
   /* opacity: 0.5; */
@@ -189,6 +196,10 @@ button:hover {
   /* border: 1px solid red; */
 
   margin: 10px;
+}
+
+.single-box:not(.cover-image-box) .slot-image {
+  filter: blur(10px);
 }
 
 /* if mobile device */

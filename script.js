@@ -74,6 +74,20 @@ function init(firstInit = true, groups = 1, duration = 1) {
       box.classList.add("single-box");
       box.style.width = door.clientWidth + "px";
       box.style.height = door.clientHeight + "px";
+
+      // Add 'blur-image-box' class to the boxes with the specific background-image
+      if (
+        pool[i].image !==
+        "https://cdn3.iconfinder.com/data/icons/slot-machine-symbols-filled-outline/256/cherry-512.png"
+      ) {
+        box.classList.add("blur-image-box");
+      }
+
+      // if the image is the default image, make the image size smaller
+
+      // if box-layout background-image is used, add a blur to box-layout
+      // box.style.filter = "blur(1px)";
+
       // box.innerHTML = `<p>${pool[i].text}</p> <img class="slot-image" src="${pool[i].image}">`;
       // box.innerHTML = `<div class="box-layout"> <img class="slot-image" src="${pool[i].image}"> <p>${pool[i].text}</p> </div>`;
       // box.innerHTML = `<div class="box-layout"> <img class="slot-image" src="${pool[i].image}"> </div>`;
@@ -115,34 +129,39 @@ function shuffle([...arr]) {
 }
 
 // when Play is clicked, change the button to Share
-document.querySelector("#play").addEventListener("click", function () {
-  // change the button ID to 'share'
-  this.id = "share";
-  // change the 'Play' text to 'Share'
-  this.innerHTML = "Share";
-});
+// document.querySelector("#play").addEventListener("click", function () {
+//   // change the button ID to 'share'
+//   this.id = "share";
+//   // change the 'Play' text to 'Share'
+//   this.innerHTML = "Share";
+// });
 
 // when 'Reset' is clicked, change the button to 'Play'
 document.querySelector("#reset").addEventListener("click", function () {
+  // hide away the share popup
+  // document.querySelector(".popup-box").style.visibility = "hidden";
+
   // change the button ID to 'play'
-  document.querySelector("#share").id = "play";
+  // document.querySelector("#share").id = "play";
   // change the 'Share' text to 'Play'
   document.querySelector("#play").innerHTML = "Play";
 });
 
-function checkElementId() {
-  const element = document.getElementById("share");
-  if (element) {
-    element.addEventListener("click", function () {
-      // do something when the element is clicked
-      console.log("share clicked");
-    });
-  } else {
-    setTimeout(checkElementId, 100); // check again in 100ms
-  }
-}
+// function checkElementId() {
+//   const element = document.getElementById("share");
+//   if (element) {
+//     element.addEventListener("click", function () {
+//       // do something when the element is clicked
+//       console.log("share clicked");
 
-checkElementId(); // start checking for the element ID
+//       // show the share popup
+//     });
+//   } else {
+//     setTimeout(checkElementId, 100); // check again in 100ms
+//   }
+// }
+
+// checkElementId(); // start checking for the element ID
 
 init();
 // })();
