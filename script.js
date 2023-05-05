@@ -84,6 +84,12 @@ function init(firstInit = true, groups = 1, duration = 1) {
       }
 
       // if the image is the default image, make the image size smaller
+      if (
+        pool[i].image ==
+        "https://cdn3.iconfinder.com/data/icons/slot-machine-symbols-filled-outline/256/cherry-512.png"
+      ) {
+        box.classList.add("cover-image-box");
+      }
 
       // if box-layout background-image is used, add a blur to box-layout
       // box.style.filter = "blur(1px)";

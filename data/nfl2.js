@@ -61,9 +61,9 @@ const dataList = [
         "https://media.cnn.com/api/v1/images/stellar/prod/180426132335-shahid-khan-tease-fulham-wembley-stadium-purchase.jpg?q=w_3736,h_2512,x_0,y_0,c_fill",
     },
     {
-      text: "Randy Lerner",
+      text: "Sheila Ford Hamp",
       image:
-        "https://www.independent.ie/sport/soccer/c51c8/40819299.ece/AUTOCROP/w620/ipanews_d3716b97-9fcd-4022-914c-ea10886cb8e9_1",
+        "https://cloudfront-us-east-1.images.arcpublishing.com/gmg/2SDH55JR7NH2LGDIJCZJNXVYPU.jpg",
     },
     {
       text: "Malcolm Glazer",
