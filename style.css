@@ -205,6 +205,21 @@ button:hover {
   margin: 10px;
 }
 
+.share-popup-box {
+  border: 1px solid purple;
+  /* hide the popup box */
+  visibility: hidden;
+
+  width: 600px;
+  height: 600px;
+
+  position: absolute;
+
+  margin-top: 50px;
+
+  background-color: whitesmoke;
+}
+
 /* .single-box:not(.cover-image-box) .slot-image {
   filter: blur(10px);
 } */

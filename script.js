@@ -1,15 +1,44 @@
-// import { dataList } from "data/nfl.js";
-// const dataList = import("./data/nfl.json");
-
-// var mydata = JSON.parse(data);
-
-// (function () {
-// define and select all 'door' elements
+// define the "doors" element
 const doors = document.querySelectorAll(".single-door");
 
-// add event listeners to buttons
-document.querySelector("#play").addEventListener("click", spin);
-document.querySelector("#reset").addEventListener("click", init);
+// define gameOverBool
+let gameOverBool = false;
+
+// --- add event listeners to buttons ---
+
+// Play and Share button - functions as both Play and Share
+playAndShareButton = document.querySelector("#playAndShare");
+// add event listener to the Play and Share button
+playAndShareButton.addEventListener("click", () => {
+  // if the game is NOT over, play the game
+  if (gameOverBool === false) {
+    console.log("play game clicked");
+    spin();
+  }
+  // if the game is over, share the game
+  else if (gameOverBool === true) {
+    console.log("share game clicked");
+    shareGame();
+  }
+});
+
+document.querySelector("#reset").addEventListener("click", () => {
+  console.log("reset game clicked");
+
+  gameOverBool = false;
+  // change the 'Share' button to 'Play'
+  document.querySelector("#playAndShare").innerHTML = "Play";
+
+  init();
+});
+
+// --- functions ---
+
+// function to share the game
+function shareGame() {
+  // set the visibility of the .share-popup-box to visible
+  // document.querySelector(".share-popup-box").style.visibility = "visible";
+}
 
 // define init function
 function init(firstInit = true, groups = 1, duration = 1) {
@@ -111,20 +140,27 @@ function init(firstInit = true, groups = 1, duration = 1) {
   }
 }
 
-// define spin function
+// function to spin the slot 'doors'
 async function spin() {
   // change the 'Play' button to 'Share'
-  // document.querySelector("#spin").innerHTML = "Share";
+  document.querySelector("#playAndShare").innerHTML = "Share";
 
+  // init the game
   init(false, 1, 2);
+
+  // for each door, set the animation to spin
   for (const door of doors) {
     const boxes = door.querySelector(".slot-boxes");
     const duration = parseInt(boxes.style.transitionDuration);
     boxes.style.transform = "translateY(0)";
     await new Promise((resolve) => setTimeout(resolve, duration * 100));
   }
+
+  // set gameOverBool to true
+  gameOverBool = true;
 }
 
+// function to shuffle the items in the array
 function shuffle([...arr]) {
   let m = arr.length;
   while (m) {
@@ -134,40 +170,5 @@ function shuffle([...arr]) {
   return arr;
 }
 
-// when Play is clicked, change the button to Share
-// document.querySelector("#play").addEventListener("click", function () {
-//   // change the button ID to 'share'
-//   this.id = "share";
-//   // change the 'Play' text to 'Share'
-//   this.innerHTML = "Share";
-// });
-
-// when 'Reset' is clicked, change the button to 'Play'
-document.querySelector("#reset").addEventListener("click", function () {
-  // hide away the share popup
-  // document.querySelector(".popup-box").style.visibility = "hidden";
-
-  // change the button ID to 'play'
-  // document.querySelector("#share").id = "play";
-  // change the 'Share' text to 'Play'
-  document.querySelector("#play").innerHTML = "Play";
-});
-
-// function checkElementId() {
-//   const element = document.getElementById("share");
-//   if (element) {
-//     element.addEventListener("click", function () {
-//       // do something when the element is clicked
-//       console.log("share clicked");
-
-//       // show the share popup
-//     });
-//   } else {
-//     setTimeout(checkElementId, 100); // check again in 100ms
-//   }
-// }
-
-// checkElementId(); // start checking for the element ID
-
+// init the game
 init();
-// })();
