@@ -1,7 +1,6 @@
 // define the "doors" element
 const doors = document.querySelectorAll(".single-door");
 
-// define gameOverBool
 let gameOverBool = false;
 
 // --- add event listeners to buttons ---
@@ -11,13 +10,12 @@ playAndShareButton = document.querySelector("#playAndShare");
 // add event listener to the Play and Share button
 playAndShareButton.addEventListener("click", () => {
   // if the game is NOT over, play the game
-  if (gameOverBool === false) {
+  if (gameOverBool == false) {
     console.log("play game clicked");
     spin();
   }
   // if the game is over, share the game
-  else if (gameOverBool === true) {
-    console.log("share game clicked");
+  else if (gameOverBool == true) {
     shareGame();
   }
 });
@@ -38,12 +36,42 @@ document.querySelector("#reset").addEventListener("click", () => {
 function shareGame() {
   // set the visibility of the .share-popup-box to visible
   // document.querySelector(".share-popup-box").style.visibility = "visible";
+
+  console.log("share game clicked");
+
+  var modal = document.getElementById("shareModal");
+  console.log("modal selected");
+
+  var close_share = document.getElementsByClassName("closeBtn")[0];
+  console.log("close button selected");
+
+  console.log("setting event listener for share button");
+  playAndShareButton.addEventListener("click", () => {
+    console.log("share button clicked");
+    console.log("modal.style.display = block");
+    // modal.style.display = "block";
+    // set the visibility of the modal to visible
+    modal.style.visibility = "visible";
+  });
+
+  close_share.onclick = function () {
+    modal.style.visibility = "hidden";
+  };
+
+  // window.onclick = function (event) {
+  //   if (event.target == modal) {
+  //     modal.style.display = "none";
+  //   }
+  // };
 }
 
 // define init function
 function init(firstInit = true, groups = 1, duration = 1) {
   // change the 'Share' button to 'Play'
   // document.querySelector("#spin").innerHTML = "Play";
+
+  // define gameOverBool
+  // let gameOverBool = false;
 
   for (let i = 0; i < doors.length; i++) {
     const door = doors[i];
@@ -158,6 +186,7 @@ async function spin() {
 
   // set gameOverBool to true
   gameOverBool = true;
+  console.log("Game Over! Share or Spin again!");
 }
 
 // function to shuffle the items in the array
