@@ -1,7 +1,9 @@
 // define the "doors" element
-const doors = document.querySelectorAll(".single-door");
+const ALL_DOORS = document.querySelectorAll(".single-door");
 
 let gameOverBool = false;
+
+console.log("Game Over: " + gameOverBool);
 
 // --- add event listeners to buttons ---
 
@@ -9,13 +11,17 @@ let gameOverBool = false;
 playAndShareButton = document.querySelector("#playAndShare");
 // add event listener to the Play and Share button
 playAndShareButton.addEventListener("click", () => {
+  console.log("play and share button clicked");
   // if the game is NOT over, play the game
   if (gameOverBool == false) {
+    console.log("Game Over: " + gameOverBool);
     console.log("play game clicked");
     spin();
   }
   // if the game is over, share the game
   else if (gameOverBool == true) {
+    console.log("Game Over: " + gameOverBool);
+    console.log("share game clicked");
     shareGame();
   }
 });
@@ -37,22 +43,20 @@ function shareGame() {
   // set the visibility of the .share-popup-box to visible
   // document.querySelector(".share-popup-box").style.visibility = "visible";
 
-  console.log("share game clicked");
-
   var modal = document.getElementById("shareModal");
   console.log("modal selected");
 
   var close_share = document.getElementsByClassName("closeBtn")[0];
   console.log("close button selected");
 
-  console.log("setting event listener for share button");
-  playAndShareButton.addEventListener("click", () => {
-    console.log("share button clicked");
-    console.log("modal.style.display = block");
-    // modal.style.display = "block";
-    // set the visibility of the modal to visible
-    modal.style.visibility = "visible";
-  });
+  // console.log("setting event listener for share button");
+  // playAndShareButton.addEventListener("click", () => {
+  console.log("share button clicked");
+  console.log("modal.style.display = block");
+  // modal.style.display = "block";
+  // set the visibility of the modal to visible
+  modal.style.visibility = "visible";
+  // });
 
   close_share.onclick = function () {
     modal.style.visibility = "hidden";
@@ -73,8 +77,8 @@ function init(firstInit = true, groups = 1, duration = 1) {
   // define gameOverBool
   // let gameOverBool = false;
 
-  for (let i = 0; i < doors.length; i++) {
-    const door = doors[i];
+  for (let i = 0; i < ALL_DOORS.length; i++) {
+    const door = ALL_DOORS[i];
     const items = dataList[i]; // get data-items for this door
 
     if (firstInit) {
@@ -177,7 +181,7 @@ async function spin() {
   init(false, 1, 2);
 
   // for each door, set the animation to spin
-  for (const door of doors) {
+  for (const door of ALL_DOORS) {
     const boxes = door.querySelector(".slot-boxes");
     const duration = parseInt(boxes.style.transitionDuration);
     boxes.style.transform = "translateY(0)";
@@ -186,6 +190,7 @@ async function spin() {
 
   // set gameOverBool to true
   gameOverBool = true;
+  console.log("Game Over: " + gameOverBool);
   console.log("Game Over! Share or Spin again!");
 }
 
