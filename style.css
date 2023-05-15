@@ -274,6 +274,33 @@ button:hover {
   cursor: pointer;
 }
 
+.share-content {
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+/* Style Share Icons */
+.modal-content a {
+  color: #000;
+  text-decoration: none;
+  margin-right: 10px;
+  font-size: 24px;
+}
+.modal-content a:hover {
+  color: #888;
+}
+
+.share-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.franchise-text {
+  /* border: 1px solid black; */
+  font-size: 1rem;
+}
+
 /* if mobile device */
 @media only screen and (max-width: 600px) {
   .doors-holder {

@@ -62,6 +62,56 @@ function shareGame() {
     modal.style.visibility = "hidden";
   };
 
+  // get the values in infront-of-image
+  var infrontOfImage = document.getElementsByClassName("infront-of-image");
+  // get the text in infront-of-image
+  var slot1 = infrontOfImage[0].textContent;
+  var slot2 = infrontOfImage[1].textContent;
+  var slot3 = infrontOfImage[2].textContent;
+  var slot4 = infrontOfImage[3].textContent;
+
+  var franchiseText = document.querySelector(".franchise-text");
+  // clear the modal content
+  franchiseText.innerHTML = "";
+
+  // Create a new paragraph element
+  // var newParagraph = document.createElement("p");
+  // Set the text for the new paragraph
+  franchiseText.innerHTML =
+    "🏢 City: " +
+    slot1 +
+    "</br>" +
+    "💵 Owner:" +
+    slot2 +
+    "</br>" +
+    "📢 Coach: " +
+    slot3 +
+    "</br>" +
+    "🏈 QB: " +
+    slot4;
+  // Append the new paragraph to the modal content
+  // franchiseText.appendChild(newParagraph);
+
+  // // Create a new paragraph element
+  // var newParagraph = document.createElement("p");
+  // // Set the text for the new paragraph
+  // newParagraph.textContent = "💵 Owner: " + slot2;
+  // modalContent.appendChild(newParagraph);
+
+  // // Create a new paragraph element
+  // var newParagraph = document.createElement("p");
+  // // Set the text for the new paragraph
+  // newParagraph.textContent = "📢 Coach: " + slot3;
+  // // Append the new paragraph to the modal content
+  // modalContent.appendChild(newParagraph);
+
+  // // Create a new paragraph element
+  // var newParagraph = document.createElement("p");
+  // // Set the text for the new paragraph
+  // newParagraph.textContent = "🏈 QB: " + slot4;
+  // // Append the new paragraph to the modal content
+  // modalContent.appendChild(newParagraph);
+
   // window.onclick = function (event) {
   //   if (event.target == modal) {
   //     modal.style.display = "none";
