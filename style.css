@@ -275,6 +275,10 @@ button:hover {
 }
 
 .share-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
   margin-top: 50px;
   margin-left: 30px;
 }
@@ -299,6 +303,50 @@ button:hover {
 .franchise-text {
   /* border: 1px solid black; */
   font-size: 1rem;
+}
+
+/* Style the popup */
+.popup {
+  /* visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute; */
+  /* z-index: 1; */
+  /* bottom: 125%; */
+  /* left: 50%; */
+  /* margin-left: -60px; */
+
+  text-align: center;
+
+  width: 70%;
+  /* border: 1px solid red; */
+
+  padding: 10px;
+  /* background-color: #555; */
+  border-radius: 8px;
+
+  background-color: #aaaaaa;
+
+  visibility: hidden;
+}
+.popup::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+.show {
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* if mobile device */
