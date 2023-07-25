@@ -21,6 +21,7 @@ body {
 .header-div {
   /* border: 1px solid red; */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -114,7 +115,7 @@ button:hover {
 }
 
 .blur-image-box .box-layout {
-  filter: blur(3px) brightness(40%);
+  filter: blur(1.5px) brightness(50%);
 }
 
 .cover-image-box .box-layout {
@@ -174,7 +175,7 @@ button:hover {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 
-  font-size: 2rem;
+  font-size: 1.5rem;
 
   padding: 10px;
 
