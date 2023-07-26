@@ -208,6 +208,7 @@ button:hover {
 
 .share-popup-box {
   border: 1px solid purple;
+
   /* hide the popup box */
   visibility: hidden;
 

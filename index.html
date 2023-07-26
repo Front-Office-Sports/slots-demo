@@ -1,89 +1,150 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NFL Franchise Slots Game</title>
+    <!-- set page title -->
+    <title>NFL Franchise Generator</title>
+
+    <!-- standard meta tags -->
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
 
+    <!-- import AJAX -->
+    <!-- TODO: DO WE NEED THIS??? -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
   </head>
+
+  <!-- start body -->
   <body>
+    <!-- start game header -->
+    <!-- this would include things like logo, navigation, instructions, etc -->
     <div class="header-div">
-      <!-- insert header with image -->
+      <!-- FOS logo -->
       <img
         class="logo-holder"
-        src="img/fos-logo.svg"
+        src="images/fos-logo.svg"
         alt="Front Office Sports"
       />
-    </div>
-    <div class="game-div">
+      <!-- game insutrctions -->
       <div class="instructions-holder">
         <p>Welcome to the Front Office Sports NFL franchise generator.</p>
         <p>Press 'Play' to generate your NFL franchise.</p>
         <p>Share it across social media.</p>
       </div>
+    </div>
+    <!-- end game header -->
 
+    <!-- start game div (to hold the actual game) -->
+    <div class="game-div">
+      <!-- hold ALL the 'doors' of the slot -->
       <div class="doors-holder">
-        <!-- door 1 -->
+        <!-- door and text 1 -->
         <div class="header-and-door-holder">
+          <!-- text above the door -->
           <h2>City</h2>
+          <!-- door -->
           <div class="single-door">
+            <!-- slots inside the door
+              starts empty, but will be filled with the slot data from the JS file
+              (this is what rotates around) -->
             <div class="slot-boxes"></div>
           </div>
         </div>
 
-        <!-- door 2 -->
+        <!-- door and text 2 -->
         <div class="header-and-door-holder">
+          <!-- text above the door -->
           <h2>Owner</h2>
+          <!-- door -->
           <div class="single-door">
+            <!-- slots inside the door
+              starts empty, but will be filled with the slot data from the JS file
+              (this is what rotates around) -->
             <div class="slot-boxes"></div>
           </div>
         </div>
 
-        <!-- door 3 -->
+        <!-- door and text 3 -->
         <div class="header-and-door-holder">
+          <!-- text above the door -->
           <h2>Coach</h2>
+          <!-- door -->
           <div class="single-door">
+            <!-- slots inside the door
+              starts empty, but will be filled with the slot data from the JS file
+              (this is what rotates around) -->
             <div class="slot-boxes"></div>
           </div>
         </div>
 
-        <!-- door 4 -->
+        <!-- door ad text 4 -->
         <div class="header-and-door-holder">
+          <!-- text above the door -->
           <h2>Quarterback</h2>
+          <!-- door -->
           <div class="single-door">
+            <!-- slots inside the door
+              starts empty, but will be filled with the slot data from the JS file
+              (this is what rotates around) -->
             <div class="slot-boxes"></div>
           </div>
         </div>
+
+        <!-- More doors go here. Doors can also be removed if we want to have less -->
       </div>
-      <!-- buttons go here -->
+
+      <!-- 'Play' and 'Reset' buttons go here -->
       <div class="buttons-holder">
         <button id="playAndShare">Play</button>
         <button id="reset">Reset</button>
       </div>
 
-      <!-- share modal -->
-      <div id="shareModal" class="modal">
+      <!-- share modal (initially hidden) -->
+      <div id="sharePopup" class="modal">
         <div class="modal-content">
           <span class="closeBtn">&times;</span>
 
           <div class="share-content">
             <p class="share-header">Share your NFL franchise.</p>
             <div class="franchise-text"></div>
-            <!-- add a button that says Share -->
-            <button class="copy-share-button" onclick="copyToClipboard()">
-              <i class="fas fa-share-alt"></i> Share
+
+            <!-- add a button that says Copy -->
+            <button class="copy-share-button" onclick="copyShareClicked()">
+              <i class="fas fa-share-alt"></i> Copy
             </button>
-            <span class="popup" id="myPopup">Results copied to clipboard</span>
+
+            <!-- add a button that says Tweet -->
+            <button class="tweet-share-button" onclick="twitterShareClicked()">
+              <i class="fab fa-twitter"></i> Tweet
+            </button>
+
+            <!-- add a button that says Facebook -->
+            <button
+              class="facebook-share-button"
+              onclick="facebookShareClicked()"
+            >
+              <i class="fab fa-facebook"></i> Facebook
+            </button>
+
+            <span class="popup" id="resultsCopiedPopup"
+              >Results copied to clipboard</span
+            >
           </div>
         </div>
       </div>
     </div>
+    <!-- end game div -->
   </body>
+  <!-- end body -->
+
+  <!-- import JS -->
+  <!-- list with slots data (cities, owners, coaches, QBs) -->
+  <!-- this will be changed depending on the theme/sport -->
   <script src="data/nfl2.js"></script>
-  <script src="script.js"></script>
+
+  <!-- import Javascript functions for the game -->
+  <script src="script_v2.js"></script>
 </html>
