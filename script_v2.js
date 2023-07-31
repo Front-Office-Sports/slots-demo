@@ -103,6 +103,43 @@ function init(firstInit = true, groups = 1, duration = 1) {
 }
 
 // Spin function goes here (function to spin the slot 'doors')
+// async function spin() {
+//   // init the game
+//   init(false, 1, 2);
+
+//   // disable all buttons
+//   playAndShareButton.disabled = true;
+//   resetButton.disabled = true;
+
+//   isCancelled = false; // Ensure that cancelled flag is set to false at the beginning of each spin
+
+//   // for each door, set the animation to spin
+//   for (const door of allDoors) {
+//     const boxes = door.querySelector(".slot-boxes");
+//     const duration = parseInt(boxes.style.transitionDuration);
+//     boxes.style.transform = "translateY(0)";
+//     await new Promise((resolve) => setTimeout(resolve, duration * 100));
+//   }
+
+//   // wait for the last door to finish spinning, then set gameOverBool to true
+//   await new Promise((resolve) => setTimeout(resolve, 1800));
+
+//   if (!isCancelled) {
+//     isGameOver = true;
+//     // change the 'Play' button to 'Share'
+//     document.querySelector("#playAndShare").innerHTML = "Share";
+//   }
+
+//   // enable all buttons
+//   playAndShareButton.disabled = false;
+//   resetButton.disabled = false;
+
+//   // display the 'Game Over' message
+//   console.log("Game Over! Share or Spin again!");
+// }
+
+// spin new
+// Spin function goes here (function to spin the slot 'doors')
 async function spin() {
   // init the game
   init(false, 1, 2);
@@ -118,11 +155,11 @@ async function spin() {
     const boxes = door.querySelector(".slot-boxes");
     const duration = parseInt(boxes.style.transitionDuration);
     boxes.style.transform = "translateY(0)";
-    await new Promise((resolve) => setTimeout(resolve, duration * 100));
+    await animate(duration);
   }
 
   // wait for the last door to finish spinning, then set gameOverBool to true
-  await new Promise((resolve) => setTimeout(resolve, 1800));
+  await animate(1800);
 
   if (!isCancelled) {
     isGameOver = true;
@@ -137,6 +174,23 @@ async function spin() {
   // display the 'Game Over' message
   console.log("Game Over! Share or Spin again!");
 }
+
+function animate(duration) {
+  return new Promise((resolve) => {
+    let start;
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      const progress = timestamp - start;
+      if (progress < duration) {
+        requestAnimationFrame(step);
+      } else {
+        resolve();
+      }
+    }
+    requestAnimationFrame(step);
+  });
+}
+
 
 // function to shuffle the items order
 function shuffle([...arr]) {
