@@ -52,7 +52,7 @@ body {
 
   height: 300px;
 
-  /* border: 1px solid red; */
+  /* border: 1px solid blue; */
 }
 
 .single-door {
@@ -164,8 +164,8 @@ button:hover {
 }
 
 .instructions-holder {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
@@ -361,7 +361,16 @@ button:hover {
 @media only screen and (max-width: 600px) {
   .doors-holder {
     width: 100%;
-    height: 120px;
+    height: 500px;
+    /* flex-direction: column; */
+
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equally sized columns */
+    grid-template-rows: 1fr 1fr; /* Two equally sized rows */
+    /* gap: 10px; Adjust this value for spacing between grid items, if needed */
+
+    justify-items: center; /* Centers children horizontally in each cell */
+    align-items: center;
   }
 
   .logo-holder {
@@ -373,7 +382,11 @@ button:hover {
   }
 
   .header-and-door-holder {
-    font-size: 0.5rem;
-    width: 50%;
+    font-size: 0.8rem;
+    width: 80%;
+    height: 225px;
+
+    margin: 0;
+    padding: 0;
   }
 }
