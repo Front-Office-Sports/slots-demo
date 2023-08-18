@@ -186,6 +186,8 @@ button:hover {
 
   text-align: center;
 
+  z-index: 15;
+
   /* add black outline to the text */
   /* text-shadow: 0 0 10px black; */
 }
@@ -383,8 +385,6 @@ button:hover {
 
   .infront-of-image {
     font-size: 1rem;
-
-    z-index: 15;
   }
 
   .header-and-door-holder {
