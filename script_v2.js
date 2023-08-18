@@ -24,7 +24,10 @@ init();
 function init(firstInit = true, groups = 1, duration = 1) {
   for (let i = 0; i < allDoors.length; i++) {
     const door = allDoors[i];
-    const items = dataList[i]; // get data-items for this door
+    // const items = dataList[i]; // get data-items for this door
+
+    // get 10 random items for each door
+    const items = shuffle(dataList[i]).slice(0, 10);
 
     if (firstInit) {
       door.dataset.spinned = "0";
@@ -190,7 +193,6 @@ function animate(duration) {
     requestAnimationFrame(step);
   });
 }
-
 
 // function to shuffle the items order
 function shuffle([...arr]) {
