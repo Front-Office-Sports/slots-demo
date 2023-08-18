@@ -93,7 +93,8 @@ function init(firstInit = true, groups = 1, duration = 1) {
         box.classList.add("cover-image-box");
       }
 
-      box.innerHTML = `<div class="box-layout" style="background-image: url('${pool[i].image}')"></div><p class="infront-of-image">${pool[i].text}</p>`;
+      // lower z index than the border
+      box.innerHTML = `<div class="box-layout" style="background-image: url('${pool[i].image}'); z-index: 5;"></div><p class="infront-of-image">${pool[i].text}</p>`;
 
       boxesClone.appendChild(box);
     }

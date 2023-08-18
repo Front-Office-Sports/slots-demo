@@ -56,6 +56,9 @@ body {
 }
 
 .single-door {
+  /* trying to add a z position so it is in front of the image when spinning */
+  z-index: 10;
+
   border: 2px solid black;
 
   overflow: hidden;
