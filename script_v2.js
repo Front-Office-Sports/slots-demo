@@ -93,7 +93,7 @@ function init(firstInit = true, groups = 1, duration = 1) {
         box.classList.add("cover-image-box");
       }
 
-      box.innerHTML = `<div class="box-layout" style="background-image: url('${pool[i].image}')"></div><p class="infront-of-image">${pool[i].text}</p>`;
+      box.innerHTML = `<div class="box-layout" style="background-image: url('${pool[i].image}'); border-radius: 18px;"></div><p class="infront-of-image">${pool[i].text}</p>`;
 
       boxesClone.appendChild(box);
     }
