@@ -248,6 +248,8 @@ button:hover {
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
 
+  z-index: 20;
+
   /* border: 1px solid red; */
 }
 
