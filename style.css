@@ -47,6 +47,9 @@ body {
 
   height: 100%; /* Set the minimum height of the second div to the viewport height */
   /* border: 1px solid blue; */
+
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .doors-holder {
