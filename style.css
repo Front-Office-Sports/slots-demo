@@ -24,6 +24,11 @@ body {
   align-items: center;
 }
 
+p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .header-div {
   /* border: 1px solid red; */
   display: flex;
@@ -48,10 +53,12 @@ body {
   height: 100%; /* Set the minimum height of the second div to the viewport height */
   /* border: 1px solid blue; */
 
-  padding-left: 20px;
-  padding-right: 20px;
+  /* padding-left: 20px;
+  padding-right: 20px; */
 
   border: 1px solid green;
+
+  width: 80%;
 }
 
 .doors-holder {
@@ -63,7 +70,9 @@ body {
 
   height: 300px;
 
-  /* border: 1px solid blue; */
+  border: 1px solid blue;
+
+  width: 80%;
 }
 
 .single-door {
@@ -127,7 +136,7 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .blur-image-box .box-layout {
@@ -214,8 +223,12 @@ button:hover {
   align-items: center;
   height: 100%;
 
-  width: 180px;
+  /* width: 180px; */
   /* height: 80%; */
+
+  /* width: 30%; */
+
+  width: 20%;
 
   font-size: 1rem;
 
@@ -319,6 +332,7 @@ button:hover {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .franchise-text {
@@ -374,36 +388,71 @@ button:hover {
   margin-top: 20px;
 }
 
-/* if mobile device */
-@media only screen and (max-width: 600px) {
+.game-instructions-text {
+  font-size: 1rem;
+}
+
+/* adjust for screen sizes */
+
+/* if screen width 1200 or less */
+@media only screen and (max-width: 1200px) {
+  .game-div {
+    width: 100%;
+  }
   .doors-holder {
     width: 100%;
-    height: 500px;
-    /* flex-direction: column; */
-
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equally sized columns */
-    grid-template-rows: 1fr 1fr; /* Two equally sized rows */
-    /* gap: 10px; Adjust this value for spacing between grid items, if needed */
-
-    justify-items: center; /* Centers children horizontally in each cell */
-    align-items: center;
   }
 
-  .logo-holder {
-    width: 70%;
+  /* .header-and-door-holder {
+    font-size: 0.8rem;
   }
 
   .infront-of-image {
     font-size: 1rem;
+  } */
+}
+
+@media only screen and (max-width: 750px) {
+  .header-and-door-holder {
+    font-size: 0.8rem;
+  }
+
+  .infront-of-image {
+    font-size: 1.1rem;
+  }
+}
+
+/* if the screen is mobile (600px or less) */
+@media only screen and (max-width: 600px) {
+  .game-div {
+    width: 100%;
+    /* height: 100vh; */
+  }
+
+  .doors-holder {
+    width: 80%;
+    /* height: 100%; */
+    height: auto;
+
+    /* adjust to a 2x2 grid*/
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    justify-items: center;
+    align-items: center;
+
+    /* margin-left: 10px;
+    margin-right: 10px; */
   }
 
   .header-and-door-holder {
-    font-size: 0.8rem;
-    width: 80%;
+    width: 70%;
     height: 225px;
+    font-size: 0.8rem;
+  }
 
-    margin: 0;
-    padding: 0;
+  .infront-of-image {
+    font-size: 1rem;
   }
 }
