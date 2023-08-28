@@ -33,7 +33,7 @@ p {
 .game-body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 
   border: 1px solid red;
