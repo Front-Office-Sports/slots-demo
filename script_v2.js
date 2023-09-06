@@ -11,13 +11,13 @@ let isGameOver = false;
 const playAndShareButton = document.querySelector("#playAndShare");
 const resetButton = document.querySelector("#reset");
 
-const gameUrl = "https://frontofficesports.com/slots-interactive-v1/";
-
-// add event listeners to buttons
-addEventListeners();
+const gameUrl = "https://frontofficesports.com/nfl-fantasy-franchise/";
 
 // initialize the game
 init();
+
+// add event listeners to buttons
+addEventListeners();
 
 // --- Game Functions --- //
 // define init function (initialize the game)
