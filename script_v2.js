@@ -240,7 +240,7 @@ function handleResetClick() {
   isGameOver = false;
 
   // change 'Share' button back to 'Play'
-  playAndShareButton.innerHTML = "Play";
+  playAndShareButton.innerHTML = "Spin";
 
   // set the isCancelled flag to true
   isCancelled = true;
