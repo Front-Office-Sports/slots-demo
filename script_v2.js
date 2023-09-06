@@ -1,5 +1,5 @@
 // --- Declarations --- //
-const slotsCoverImg = "images/slot_img/cherry_cover-min.jpg";
+const slotsCoverImg = "images/slot_img/cherry_cover.png";
 
 // define the "doors" element
 const allDoors = document.querySelectorAll(".single-door");
